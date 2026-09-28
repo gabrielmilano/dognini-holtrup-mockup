@@ -82,16 +82,34 @@
     });
 
     /* Abas de unidades */
-    var tabs = Array.prototype.slice.call(document.querySelectorAll('.tabs [role="tab"]'));
+    var tabList = document.querySelector('.tabs');
+    var ink = tabList.querySelector('.tabs__ink');
+    var tabs = Array.prototype.slice.call(tabList.querySelectorAll('[role="tab"]'));
+    var current = tabs[0];
+    function moveInk() {
+        ink.style.width = current.offsetWidth + 'px';
+        ink.style.transform = 'translateX(' + current.offsetLeft + 'px)';
+    }
     function selectTab(tab, focus) {
+        if (tab === current && !focus) return;
+        current = tab;
         tabs.forEach(function (t) {
             var on = t === tab;
+            var panel = document.getElementById(t.getAttribute('aria-controls'));
             t.setAttribute('aria-selected', String(on));
             t.tabIndex = on ? 0 : -1;
-            document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+            panel.classList.toggle('is-active', on);
+            panel.inert = !on;
         });
-        if (focus) tab.focus();
+        moveInk();
+        // no celular, traz a aba escolhida para dentro da faixa rolável
+        var left = tab.offsetLeft - (tabList.clientWidth - tab.offsetWidth) / 2;
+        tabList.scrollTo({ left: left, behavior: reduce ? 'auto' : 'smooth' });
+        if (focus) tab.focus({ preventScroll: true });
     }
+    moveInk();
+    window.addEventListener('resize', moveInk);
+    if (document.fonts) document.fonts.ready.then(moveInk);
     tabs.forEach(function (t, i) {
         t.addEventListener('click', function () { selectTab(t); });
         t.addEventListener('keydown', function (e) {

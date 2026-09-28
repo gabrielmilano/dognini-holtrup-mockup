@@ -335,9 +335,12 @@
             <button role="tab" id="t-brusque" aria-controls="p-brusque" aria-selected="false" tabindex="-1">Brusque</button>
             <button role="tab" id="t-pomerode" aria-controls="p-pomerode" aria-selected="false" tabindex="-1">Pomerode</button>
             <button role="tab" id="t-timbo" aria-controls="p-timbo" aria-selected="false" tabindex="-1">Timbó</button>
+            <span class="tabs__ink" aria-hidden="true"></span>
         </div>
 
-        <div class="unit" role="tabpanel" id="p-blumenau" aria-labelledby="t-blumenau">
+        <div class="units__panels">
+
+        <div class="unit is-active" role="tabpanel" id="p-blumenau" aria-labelledby="t-blumenau">
             <div class="unit__img"><img src="src/img/cidades/blumenau.webp" width="768" height="500" loading="lazy" alt="Vista de Blumenau"></div>
             <div class="unit__info">
                 <h3>Blumenau</h3>
@@ -354,7 +357,7 @@
             </div>
         </div>
 
-        <div class="unit" role="tabpanel" id="p-brusque" aria-labelledby="t-brusque" hidden>
+        <div class="unit" role="tabpanel" id="p-brusque" aria-labelledby="t-brusque" inert>
             <div class="unit__img"><img src="src/img/cidades/brusque.webp" width="768" height="500" loading="lazy" alt="Vista de Brusque"></div>
             <div class="unit__info">
                 <h3>Brusque</h3>
@@ -371,7 +374,7 @@
             </div>
         </div>
 
-        <div class="unit" role="tabpanel" id="p-pomerode" aria-labelledby="t-pomerode" hidden>
+        <div class="unit" role="tabpanel" id="p-pomerode" aria-labelledby="t-pomerode" inert>
             <div class="unit__img"><img src="src/img/cidades/pomerode.webp" width="768" height="500" loading="lazy" alt="Portal turístico de Pomerode"></div>
             <div class="unit__info">
                 <h3>Pomerode</h3>
@@ -387,7 +390,7 @@
             </div>
         </div>
 
-        <div class="unit" role="tabpanel" id="p-timbo" aria-labelledby="t-timbo" hidden>
+        <div class="unit" role="tabpanel" id="p-timbo" aria-labelledby="t-timbo" inert>
             <div class="unit__img"><img src="src/img/cidades/timbo.webp" width="768" height="500" loading="lazy" alt="Ponte pênsil sobre o rio em Timbó"></div>
             <div class="unit__info">
                 <h3>Timbó</h3>
@@ -400,6 +403,7 @@
                 </ul>
                 <p class="unit__mail"><svg class="ic"><use href="#i-mail"/></svg><span><a href="mailto:ivan.holtrup@dogninieholtrup.adv.br">ivan.holtrup@dogninieholtrup.adv.br</a><a href="mailto:pamela.zermiani@dogninieholtrup.adv.br">pamela.zermiani@dogninieholtrup.adv.br</a></span></p>
             </div>
+        </div>
         </div>
     </div>
 </section>
